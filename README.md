@@ -14,6 +14,8 @@ Checklist:
 # Wireframe
 
 Option 1:
+- if I can't get a geocode thing to work
 
 
 Option 2:
+- if I can get a geocode thing to work
