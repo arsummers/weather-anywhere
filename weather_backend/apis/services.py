@@ -20,6 +20,7 @@ def get_weather():
 
     coordinates = get_location()
 
+
     latitude = coordinates['latitude']
     longitude = coordinates['longitude']
 
@@ -30,11 +31,11 @@ def get_weather():
     celsius_temp = weather_data['data'][0]['temp']
     fahrenheit_temp = int((celsius_temp * 9/5) + 32)
 
-    weather = {'weather_desc': weather_data['data'][0]['weather']['description'], 'temperature': fahrenheit_temp}
+    city_and_weather = {'city_name': coordinates['city'],'weather_desc': weather_data['data'][0]['weather']['description'], 'temperature': fahrenheit_temp}
 
 
-    print(f'The weather in {coordinates["city"]} is {weather["weather_desc"]} and {weather["temperature"]} degrees')
+    print(f'The weather in {city_and_weather["city_name"]} is {city_and_weather["weather_desc"]} and {city_and_weather["temperature"]} degrees')
 
-    return f'The weather in {coordinates["city"]} is {weather["weather_desc"]} and {weather["temperature"]} degrees'
+    return city_and_weather
 
-get_weather()
+# get_weather()

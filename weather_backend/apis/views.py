@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import requests
 import os
+from django.views.generic import TemplateView
+from .services import get_weather, get_location
 
 def location(request):
     #need to be able to pass this along to front end, and to weather API
@@ -18,15 +20,21 @@ def location(request):
         'longitude' : location_data['longitude']
     })
 
-def weather(request):
+class Weather(TemplateView):
+    def get(self, request):
+        weather = get_weather()
+        return render(request, 'weather.html', weather)
+    
 
-    weatherbit_api_key = os.environ.get('WEATHERBIT_API_KEY')
+# def weather(request):
 
-    response = requests.get(f'https://api.weatherbit.io/v2.0/current?key={weatherbit_api_key}&lat=47.65671920776367&lon=-122.31868743896484')
+#     weatherbit_api_key = os.environ.get('WEATHERBIT_API_KEY')
 
-    weather_data = response.json()
+#     response = requests.get(f'https://api.weatherbit.io/v2.0/current?key={weatherbit_api_key}&lat=47.65671920776367&lon=-122.31868743896484')
 
-    return render(request, 'weather.html', {
-        'city' : weather_data['data'][0]['city_name'],
-        'weather_desc' : weather_data["data"][0]["weather"]["description"],
-    })
+#     weather_data = response.json()
+
+#     return render(request, 'weather.html', {
+#         'city' : weather_data['data'][0]['city_name'],
+#         'weather_desc' : weather_data["data"][0]["weather"]["description"],
+#     })
