@@ -34,7 +34,6 @@ function App() {
           <span role='img' aria-label='love'>
           💚
           </span>{' '}
-          tutorial link: https://www.smashingmagazine.com/2020/06/rest-api-react-fetch-axios/
         </div>
       </footer>
       </div>
