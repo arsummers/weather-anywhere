@@ -1,37 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import List from './component/List';
 import withListLoading from './component/withListLoading';
-import axios from 'axios'
 
 function App() {
     const ListLoading = withListLoading(List);
     const [appState, setAppState] = useState({
       loading: false,
-      repos: null,
+      locationData: null,
     });
 
     useEffect (() => {
       setAppState({ loading: true });
-      const apiUrl = `https://api.github.com/users/arsummers/repos`;
-      // fetch(apiUrl)
-      //   .then((response) => response.json())
-      //   .then((repos) => {
-      //     setAppState({ loading: false, repos: repos });
-      //   });
-        axios.get(apiUrl).then((repos)=>{
-          const allRepos = repos.data;
-          setAppState({ loading: false, repos: allRepos });
-        })
+      const apiUrl = `http://api.ipstack.com/check?access_key=${process.env.REACT_APP_IPSTACK_API_KEY}`;
+      
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((locationData) => {
+          setAppState({ loading: false, locationData: locationData });
+        });
     }, [setAppState]);
     return (
       <div className='App'>
         <div className='container'>
-          <h1> The repos </h1>
+          <h1> Your location? </h1>
         </div>
-        <div className='repo-container'>
-            <ListLoading isLoading={appState.loading} repos={appState.repos} />
+        <div className='location-container'>
+            <ListLoading isLoading={appState.loading} locationData={appState.locationData} />
       </div>
       <footer>
         <div className='footer'>
