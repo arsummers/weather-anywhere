@@ -35,6 +35,6 @@ def get_weather():
     celsius_temp = weather_data['data'][0]['temp']
     fahrenheit_temp = int((celsius_temp * 9/5) + 32)
 
-    city_and_weather = {'city_name': coordinates['city'],'weather_desc': weather_data['data'][0]['weather']['description'], 'temperature': fahrenheit_temp}
+    city_and_weather = {'city_name': coordinates['city'],'weather_desc': weather_data['data'][0]['weather']['description'].lower(), 'temperature': fahrenheit_temp}
 
     return city_and_weather
