@@ -2,6 +2,9 @@ import os
 import requests
 
 def get_location():
+    """
+    returns the city name, latitude, and longitude for the user's IP address
+    """
     ipstack_api_key = os.environ.get('IPSTACK_API_KEY')
 
     response = requests.get(f'http://api.ipstack.com/check?access_key={ipstack_api_key}')
@@ -14,12 +17,13 @@ def get_location():
     return location
 
 def get_weather():
-
+    """
+    gathers information from get_location, plugs lat/lon coordinates into the weatherbit API URL, returns current weather for user's location
+    """
 
     weatherbit_api_key = os.environ.get('WEATHERBIT_API_KEY')
 
     coordinates = get_location()
-
 
     latitude = coordinates['latitude']
     longitude = coordinates['longitude']
@@ -33,9 +37,4 @@ def get_weather():
 
     city_and_weather = {'city_name': coordinates['city'],'weather_desc': weather_data['data'][0]['weather']['description'], 'temperature': fahrenheit_temp}
 
-
-    print(f'The weather in {city_and_weather["city_name"]} is {city_and_weather["weather_desc"]} and {city_and_weather["temperature"]} degrees')
-
     return city_and_weather
-
-# get_weather()
