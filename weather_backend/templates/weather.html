@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>WEATHER API</h2>
-  <p>You are in <strong>{{ city_name }}</strong>  and the weather is {{ weather_desc }}
+
+  <button>
+    
+  </button>
+
+  <p>The weather in {{ city_name }} is {{ temperature }}°F with {{ weather_desc }}</p>
+
+  <p> Wrong city? Make sure you aren't using a VPN, so we get the right location. Don't worry, nothing gets stored </p>
 
 {% endblock %}
