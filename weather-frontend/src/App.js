@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import List from './component/List';
+import Location from './component/Location';
 import withListLoading from './component/withListLoading';
 
 function App() {
-    const ListLoading = withListLoading(List);
+    const ListLoading = withListLoading(Location);
     const [appState, setAppState] = useState({
       loading: false,
       locationData: null,

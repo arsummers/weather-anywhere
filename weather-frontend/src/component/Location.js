@@ -1,13 +1,13 @@
 import React from 'react';
 // converts JSON object into 
 
-const List = (props) =>{
+const Location = (props) =>{
     const { locationData } = props;
     if (!locationData) return <p>Couldn't find location data</p>;
     return (
         <ul>
             <h2 className='list-head'>Location data</h2>
-            
+
             {Array.of(locationData).map((location)=>{
                 return (
                     <li className='list'>
@@ -23,4 +23,4 @@ const List = (props) =>{
         </ul>
     );
 };
-export default List
+export default Location
