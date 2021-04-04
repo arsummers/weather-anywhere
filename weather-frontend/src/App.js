@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Location from './component/Location';
@@ -14,11 +15,15 @@ function App() {
       setAppState({ loading: true });
       const apiUrl = `http://api.ipstack.com/check?access_key=${process.env.REACT_APP_IPSTACK_API_KEY}`;
       
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((locationData) => {
-          setAppState({ loading: false, locationData: locationData });
-        });
+      // fetch(apiUrl)
+      //   .then((response) => response.json())
+      //   .then((locationData) => {
+      //     setAppState({ loading: false, locationData: locationData });
+      //   });
+      axios.get(apiUrl).then((locationData)=>{
+        const allLocationData = locationData.data;
+        setAppState({ loading: false, locationData: allLocationData });
+      })
     }, [setAppState]);
     return (
       <div className='App'>
