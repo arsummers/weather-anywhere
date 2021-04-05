@@ -11,7 +11,7 @@ const Weather = (props) =>{
             {Array.of(weatherData)[0]['data'].map((weather)=>{
                 return (
                     <li key={weather.rh} className='list'>
-                        <span className='weather-desc'> City: {weather.city_name}
+                        <span className='weather-desc'> The weather in {weather.city_name} is {weather.temp} degrees and {weather.weather.description}
                         </span>
 
                     </li>
