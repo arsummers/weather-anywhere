@@ -2,12 +2,11 @@
 
 {% block content %}
 
-  <button>
-    
-  </button>
+  <div id="weather-div">
+  <p> You are in {{ city_name }} and the weather is {{ temperature }}°F with {{ weather_desc }}</p>
 
-  <p>The weather in {{ city_name }} is {{ temperature }}°F with {{ weather_desc }}</p>
+  </div>
+  <p> Wrong city? Make sure you aren't using a VPN, so I get the right location. Don't worry, nothing gets stored </p>
 
-  <p> Wrong city? Make sure you aren't using a VPN, so we get the right location. Don't worry, nothing gets stored </p>
 
 {% endblock %}
