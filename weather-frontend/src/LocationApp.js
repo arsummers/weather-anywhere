@@ -4,7 +4,7 @@ import './App.css';
 import Location from './component/Location';
 import withListLoading from './component/withListLoading';
 
-const App2 = () => {
+const LocationApp = () => {
     const ListLoading = withListLoading(Location);
     const [appState, setAppState] = useState({
       loading: false,
@@ -23,23 +23,16 @@ const App2 = () => {
     return (
       <div className='App'>
         <div className='container'>
-          <h1> Your location? </h1>
+          <h1> Your location </h1>
         </div>
         <div className='location-container'>
             <ListLoading isLoading={appState.loading} locationData={appState.locationData} />
       </div>
-      <footer>
-        <div className='footer'>
-          Built {' '}
-          <span role='img' aria-label='love'>
-          💚
-          </span>{' '}
-        </div>
-      </footer>
+      
       </div>
 
     )
 
 }
 
-export default App2;
+export default LocationApp;

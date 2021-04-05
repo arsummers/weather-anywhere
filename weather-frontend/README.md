@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 tutorial link: https://www.smashingmagazine.com/2020/06/rest-api-react-fetch-axios/
 
-other tutorial link: https://www.youtube.com/watch?v=Mt3kxUvHORA
+other tutorial link: https://www.digitalocean.com/community/tutorials/how-to-build-forms-in-react
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
