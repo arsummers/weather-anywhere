@@ -7,9 +7,10 @@
     <title>Weather Anywhere</title>
 </head>
 <body>
-    Weather Anywhere - Django Version
+    
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app.js' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    Hello! I'm an app that checks the weather for your current location.
     {% block content %}
     {% endblock %}
 </body>
