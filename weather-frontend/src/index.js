@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import CityForm from './component/CityForm';
+import LocationApp from './LocationApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <LocationApp />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
