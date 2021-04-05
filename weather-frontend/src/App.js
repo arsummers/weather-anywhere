@@ -34,9 +34,7 @@ const App = () => {
           <ListLoading isLoading={appState.loading} weatherData={appState.weatherData} />
     </div>
     </div>
-
   )
-
 }
 
 export default App;
